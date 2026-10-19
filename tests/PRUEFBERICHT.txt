@@ -1,0 +1,53 @@
+GLEIS & GASSE 0.2.0 – PRÜFBERICHT
+
+BEREITGESTELLT
+Offline-Singleplayer-Test-APK, Paket de.gleisgasse.prototyp, VersionCode 2.
+Minimum Android 11 / API 30, targetSdkVersion 37 (Android 17).
+Keine Android-Berechtigungen, keine Internet-Berechtigung, keine nativen Bibliotheken.
+Gleiche APK-v2-Signaturidentität wie die bereitgestellte Version 0.1.0.
+
+AUSGEFÜHRTE PRÜFUNGEN
+13 Simulationstestgruppen mit Node.js bestanden.
+72 gerichtete Tram-Verbindungen: keine Gleise auf Straßen, Wasser oder Baugrundstücken.
+72 gerichtete Bus-Verbindungen: Wege ausschließlich auf vorhandenen Straßen.
+Mehrere Haltestellen auf einer Linie; Kurven und freie Tram-Wegpunkte.
+Verlängerung einer bestehenden Linie erhält ID, Name, Fahrzeuge und Positionen.
+Umsteigen ohne doppelte Fahrgeldzahlung; Kapazitäten und Warteschlangengrenzen.
+Hauswachstum von 6 auf bis zu 12 sichtbare Wohnhäuser; Einwohner 48 bis 168.
+Speicher-Roundtrip, deterministische Fortsetzung, Backup-/Fehlerfälle.
+30 simulierte Minuten, ohne Android-Gerät, mit wachsender Stadt bestanden.
+
+Browser-Touch-/Layouttests: 320x568, 393x851, 851x393, 800x1280 bestanden.
+Fünf-Halte-Tram über Oberfläche gebaut und auf sechs Halte verlängert, weiterhin eine Linie.
+Mehrteilige Buslinie, Pause, Menüs, Pointer-Drag/-Pinch-Ereignisse und Zustandswiederherstellung.
+Keine JavaScript-Fehler oder Netzwerkanfragen in diesen Testläufen.
+Die Screenshots sind echte Ausgaben des lokalen Canvas-Browser-Tests.
+
+Unabhängige APK-Paketprüfung: ZIP, Ressourcen, Manifest und DEX-Struktur bestanden.
+Registergrenzen, Argumentzahlen und Sprungziele aller fünf Activity-Methoden geprüft.
+APK-v2-RSA-Signatur und SHA-256-Inhaltsdigest kryptographisch geprüft.
+Gleiches Testzertifikat in alter und neuer APK aus dem jeweiligen Signaturblock nachgewiesen.
+
+NICHT GEPRÜFT / WICHTIGE GRENZEN
+Kein reales Android-Gerät, Android-Emulator, Android-SDK oder ART-Laufzeittest verfügbar.
+Installation, Start unter Android, echte WebView-Persistenz und native Insets ungetestet.
+Ziel-API 37 allein beweist keine Android-17-Kompatibilität.
+Browser-Tests verwenden einen ausdrücklich eingebauten In-Memory-localStorage-Testdouble.
+Das bestätigt Speicherlogik, nicht das Überleben echter Android-App-Neustarts.
+Keine Messung von Akkulast, Temperatur oder Bildrate auf dem Handy.
+Kein Play-Protect-Scan oder Sicherheitszertifikat; Warnfreiheit nicht zugesichert.
+
+BUILD
+Die gelieferte APK entstand mit einem eng begrenzten DEX/AXML/APK-Assembler.
+Dieser ist KEIN Java-Compiler. Vollständige Quellen und ein regulärer SDK-Baupfad
+liegen bei. Der reguläre SDK-Baupfad wurde hier nicht ausgeführt.
+Das öffentliche Testzertifikat eignet sich nicht für produktive Releases.
+Ausführliche technische Grenzen und Bedienung: README.md im Quellcode-ZIP.
+
+DATENSCHUTZ / INSTALLATION
+Spielressourcen vollständig lokal; kein Konto, Server, Analytics, Tracker oder Werbung.
+Android-Backup deaktiviert, WebView-Netzwerk gesperrt, keine Native-JavaScript-Bridge.
+Version 0.2 startet eine getrennte Stadt, keine Migration aus 0.1.
+Nicht vorsorglich deinstallieren. Deinstallation/Datenlöschen entfernt lokale Spielstände.
+Play Protect eingeschaltet lassen. Bei einer konkreten Schadsoftwarewarnung nicht
+umgehen, sondern Installation abbrechen und genauen Wortlaut prüfen.
