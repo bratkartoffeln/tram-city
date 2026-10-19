@@ -1,0 +1,51 @@
+name: Verify
+
+on:
+  push:
+    branches: ['main', '[0-9]*']
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verify-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Offline game checks
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+      - name: Install build and browser-test tools
+        run: |
+          npm ci --ignore-scripts --no-audit --no-fund
+          python -m pip install -r requirements-dev.txt
+          python -m playwright install --with-deps chromium
+      - name: Simulation, bundle and repository policy
+        run: |
+          npm test
+          npm run build
+          npm run check
+      - name: Browser touch tests (not Android device tests)
+        run: npm run test:browser
+      - name: Local test APK and structural verification
+        run: |
+          npm run build:apk
+          npm run check:apk
+          npm run check
+          git diff --exit-code
+      # No deployment, artifact publishing, stored signing secrets, PR approval or merge.

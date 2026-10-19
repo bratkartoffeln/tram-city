@@ -1,0 +1,35 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'"><meta name="theme-color" content="#f7f4e9"><title>Gleis &amp; Gasse · Freie Trassen</title><style>/*__STYLE__*/</style></head>
+<body>
+<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden" xmlns="http://www.w3.org/2000/svg"><defs>
+<symbol id="i-tram" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="3"/><path d="M8 2h8M12 2v3M5 12h14M12 5v7M8 19l-2 3m10-3 2 3M8 16h1m6 0h1"/></symbol>
+<symbol id="i-bus" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="15" rx="3"/><path d="M4 12h16M8 19v2m8-2v2M7 16h2m6 0h2M1 7v5m22-5v5"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="i-lines" viewBox="0 0 24 24"><circle cx="5" cy="5" r="2"/><circle cx="19" cy="19" r="2"/><path d="M7 5h9a3 3 0 0 1 0 6H8a4 4 0 0 0 0 8h9"/></symbol>
+<symbol id="i-city" viewBox="0 0 24 24"><path d="M2 22h20M3 22V10h7v12m0-18h10v18M13 8h1m2 0h1m-4 4h1m2 0h1m-4 4h1m2 0h1M6 14h1m-1 4h1"/></symbol>
+<symbol id="i-coin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15 8h-5a2 2 0 0 0 0 4h4a2 2 0 0 1 0 4H9m3-10v12"/></symbol>
+<symbol id="i-person" viewBox="0 0 24 24"><circle cx="12" cy="6" r="3"/><path d="M5 21v-4a7 7 0 0 1 14 0v4"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5L20 6"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+<symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+<symbol id="i-fit" viewBox="0 0 24 24"><path d="M3 9V3h6m6 0h6v6m0 6v6h-6m-6 0H3v-6"/></symbol>
+<symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><path d="m8 4 12 8-12 8z"/></symbol>
+<symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 8a3 3 0 0 1 6 0c0 3-3 2-3 5m0 3v1"/></symbol>
+<symbol id="i-undo" viewBox="0 0 24 24"><path d="M9 4 3 10l6 6M3 10h10a7 7 0 0 1 7 7v3"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M19 9c0 5-7 12-7 12S5 14 5 9a7 7 0 0 1 14 0z"/><circle cx="12" cy="9" r="2"/></symbol>
+<symbol id="i-leaf" viewBox="0 0 24 24"><path d="M4 20 18 6M4 17C-1 4 14 2 21 3c1 10-4 19-14 16"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V6a4 4 0 0 1 8 0v4m-4 5v2"/></symbol>
+</defs></svg>
+<main id="app">
+<canvas id="world" aria-label="Isometrische Stadt. Ein Finger verschiebt, zwei Finger zoomen. Haltestellen lassen sich auch aus der Liste auswählen."></canvas>
+<header id="hud"><div class="brand"><span class="brand-mark" id="brandMark"></span><div><strong>Gleis &amp; Gasse</strong><small>FREIE TRASSEN · 0.2</small></div></div><button id="help" class="iconbtn" aria-label="Hilfe und Datenschutz"></button></header>
+<div id="stats"><div><span id="coinIcon"></span><b id="money">1.800</b><small>Münzen</small></div><div><span id="personIcon"></span><b id="rides">0</b><small>Fahrgäste</small></div><div><span id="cityIcon"></span><b id="population">48</b><small>Einwohner</small></div></div>
+<div id="status" class="status"><span class="local-dot"></span><span id="statusText">Offline · lokal gespeichert</span></div>
+<div id="maptools"><button id="zoomIn" class="iconbtn" aria-label="Vergrößern"></button><button id="zoomOut" class="iconbtn" aria-label="Verkleinern"></button><button id="fit" class="iconbtn" aria-label="Ganze Karte zeigen"></button><div class="tool-gap"></div><button id="pause" class="iconbtn" aria-label="Spiel pausieren"></button><button id="speed" class="iconbtn" aria-label="Geschwindigkeit wechseln">1×</button></div>
+<div id="firstHint" class="first-hint"><strong>Deine Stadt wartet auf die erste Tram.</strong><span>Baue eine Linie mit mehreren Haltestellen. Die Gleise verlaufen auf freiem Gelände.</span><button id="firstLine" class="primary">Erste Tramlinie planen</button></div>
+<section id="builder" hidden aria-label="Linie planen"><div class="builder-top"><div><span id="builderKicker" class="kicker">TRAMLINIE PLANEN</span><h2 id="builderTitle">Eine Linie, viele Haltestellen</h2></div><button id="cancelBuild" class="iconbtn" aria-label="Planung verwerfen"></button></div><div id="buildHint" class="build-hint"></div><div id="anchorChips" class="anchor-chips"></div><div class="build-options"><button id="undoAnchor" class="secondary small"></button><button id="stopListToggle" class="secondary small">Haltestellen</button><button id="suggest" class="secondary small">Vorschlag</button></div><div id="stopPicker" hidden></div><div id="buildSummary" class="build-summary"></div><button id="commit" class="primary wide" disabled>Haltestellen auswählen</button></section>
+<nav id="toolbar" aria-label="Spielwerkzeuge"><button data-mode="explore" class="active"><span></span><b>Ansehen</b></button><button data-mode="tram"><span></span><b>Tram bauen</b></button><button data-mode="bus"><span></span><b>Buslinie</b></button><button data-mode="lines"><span></span><b>Linien</b></button><button data-mode="city"><span></span><b>Stadt</b></button></nav>
+<div id="toast" role="status" hidden></div>
+<div id="overlay" hidden><section id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle"><div class="sheet-head"><div><span id="sheetKicker" class="kicker"></span><h2 id="sheetTitle"></h2></div><button id="closeSheet" class="iconbtn" aria-label="Schließen"></button></div><div id="sheetBody"></div></section></div>
+</main><script>/*__ENGINE__*/</script><script>/*__RENDER__*/</script><script>/*__APP__*/</script></body></html>

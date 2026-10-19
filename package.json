@@ -1,0 +1,22 @@
+{
+  "name": "gleis-und-gasse",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Gleis & Gasse: lokaler Offline-Singleplayer-Prototyp für Android und Browser",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node tests/engine.test.js",
+    "build": "node tools/run-python.cjs tools/bundle.py",
+    "check": "node tools/run-python.cjs tools/check_repo.py",
+    "test:browser": "node tools/run-python.cjs tests/browser.test.py",
+    "build:apk": "node tools/run-python.cjs tools/build_apk.py",
+    "check:apk": "node tools/run-python.cjs tools/verify_apk.py"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bratkartoffeln/tram-timetable-manager.git"
+  }
+}
