@@ -1,0 +1,44 @@
+# Local signing material and credentials (including prototype keys)
+*.pem
+*.key
+*.pk8
+*.der
+*.jks
+*.keystore
+.pki/
+.signing/
+secrets/
+.env
+.env.*
+!.env.example
+local.properties
+
+# Build output / dependencies
+build/
+build-sdk/
+dist/
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+.gradle/
+*.apk
+*.aab
+*.dex
+
+# Generated offline bundles, rebuilt from web sources
+/web/index.html
+/android/app/src/main/assets/index.html
+
+# Generated test output / local game saves
+/tests/*.png
+/tests/*-results.json
+/tests/apk-verification.json
+/tests/update-signing.json
+playwright-report/
+test-results/
+*.save.json
+*.log
+.DS_Store
+Thumbs.db
