@@ -1,0 +1,6 @@
+{
+  "chat.useAgentsMdFile": true,
+  "github.copilot.chat.codeGeneration.useInstructionFiles": true,
+  "files.eol": "\n",
+  "files.insertFinalNewline": true
+}
